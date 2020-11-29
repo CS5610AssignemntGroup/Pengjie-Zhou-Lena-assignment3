@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const shortId = require('shortid');
 const Url = require('../models/Url');
+const keys = require('../config/keys');
+
+const baseUrl = keys.baseUrl;
 
 router.get('/:shortUrl', async (req, res) => {
     try {
@@ -32,7 +35,11 @@ router.put('/:shortUrl/edit', async (req, res) => {
                 }
                 doc.shortUrl = req.body.shortUrl;
                 doc.save();
-                res.json(`Url changed to ${doc.shortUrl}`);
+                const fullShortUrl = baseUrl + '/url' + doc.shortUrl;
+                res.status(200).json({
+                    message: `Url changed to ${doc.shortUrl}`,
+                    fullShortUrl: fullShortUrl,
+                });
             }
         );
     } catch (err) {
@@ -51,7 +58,11 @@ router.post('/unbranded', async (req, res) => {
         });
 
         if (url) {
-            res.json(shortUrl);
+            const fullShortUrl = `${baseUrl}/url/${shortUrl}`;
+            res.status(201).json({
+                message: `Created a short url ${fullShortUrl}`,
+                fullShortUrl: fullShortUrl,
+            });
         } else {
             return res.status(400).json("Can't create short url");
         }
@@ -69,7 +80,11 @@ router.post('/branded', async (req, res) => {
         });
 
         if (url) {
-            res.json(`Url ${req.body.shortUrl} created`);
+            const fullShortUrl = baseUrl + '/url' + req.body.shortUrl;
+            res.status(201).json({
+                message: `Created a short url ${fullShortUrl}`,
+                fullShortUrl: fullShortUrl,
+            });
         } else {
             return res.status(400).json("Can't create short url");
         }

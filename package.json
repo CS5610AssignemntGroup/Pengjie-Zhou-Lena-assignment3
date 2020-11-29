@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js",
-        "dev": "nodemon index.js"
+        "dev": "NODE_ENV=dev nodemon index.js"
     },
     "author": "",
     "license": "ISC",
@@ -15,7 +15,8 @@
         "mongoose": "^5.10.17",
         "nodemon": "^2.0.6",
         "shortid": "^2.2.16",
-        "uuid": "^8.3.1"
+        "uuid": "^8.3.1",
+        "valid-url": "^1.0.9"
     },
     "devDependencies": {
         "eslint": "^7.14.0",
