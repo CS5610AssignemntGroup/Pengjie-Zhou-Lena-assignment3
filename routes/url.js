@@ -13,9 +13,9 @@ router.get('/:shortUrl', async (req, res) => {
         if (url) {
             return res.redirect(url.longUrl);
         } else {
-            return res
-                .status(404)
-                .json(`No url found for ${req.params.shortUrl}`);
+            return res.status(404).json({
+                message: `No url found for ${req.params.shortUrl}`,
+            });
         }
     } catch (err) {
         console.error(err.message);
@@ -28,10 +28,11 @@ router.put('/:shortUrl/edit', async (req, res) => {
         const url = await Url.findOne(
             { shortUrl: req.params.shortUrl },
             (err, doc) => {
+                //if users try to edit a URL that doesn’t exist
                 if (err) {
-                    return res
-                        .status(404)
-                        .json(`No url found for ${req.params.shortUrl}`);
+                    return res.status(404).json({
+                        message: `No url found for ${req.params.shortUrl}`,
+                    });
                 }
                 doc.shortUrl = req.body.shortUrl;
                 doc.save();
@@ -48,9 +49,30 @@ router.put('/:shortUrl/edit', async (req, res) => {
     }
 });
 
+router.delete('/:shortUrl', async (req, res) => {
+    try {
+        await Url.deleteOne({ shortUrl: req.params.shortUrl }, err => {
+            if (err) {
+                return res.status(404).json({
+                    message: `Can't delete ${req.params.shortUrl}`,
+                });
+            }
+            res.status(200).json({
+                message: `Successfully delete ${req.params.shortUrl}`,
+            });
+        });
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json('Server Error');
+    }
+});
+
 router.post('/unbranded', async (req, res) => {
     try {
-        // res.json(req.body);
+        await checkExistedLongUrl(req, res);
+        await checkExistedBrandedUrl(req, res);
+
+        //if there is no existed url, we create one
         const shortUrl = shortId.generate();
         const url = await Url.create({
             longUrl: req.body.longUrl,
@@ -74,8 +96,12 @@ router.post('/unbranded', async (req, res) => {
 
 router.post('/branded', async (req, res) => {
     try {
+        //check if there is an existed url
+        await checkExistedLongUrl(req, res);
+
+        const longUrl = req.body.longUrl;
         const url = await Url.create({
-            longUrl: req.body.longUrl,
+            longUrl: longUrl,
             shortUrl: req.body.shortUrl,
         });
 
@@ -86,12 +112,45 @@ router.post('/branded', async (req, res) => {
                 fullShortUrl: fullShortUrl,
             });
         } else {
-            return res.status(400).json("Can't create short url");
+            return res.status(400).json({
+                message: "Can't create short url",
+            });
         }
     } catch (err) {
         console.error(err.message);
         return res.status(500).json('Server Error');
     }
 });
+
+//if the same long URL is submitted by multiple users, we return the already existing URL
+const checkExistedLongUrl = async (req, res) => {
+    const longUrl = req.body.longUrl;
+
+    //check if there is an existed long url
+    const existedUrl = await Url.findOne({ longUrl: longUrl });
+    if (existedUrl) {
+        const fullShortUrl = `${baseUrl}/url/${existedUrl.shortUrl}`;
+        res.status(200).json({
+            message: `There exist a short url for your long url`,
+            fullShortUrl: fullShortUrl,
+        });
+    }
+};
+
+//if a user requests a branded URL that already exists
+const checkExistedBrandedUrl = async (req, res) => {
+    const longUrl = req.body.longUrl;
+    const shortUrl = req.body.shortUrl;
+
+    //check if there is an existed short branded url
+    const existedUrl = await Url.findOne({ shortUrl: shortUrl });
+    if (existedUrl) {
+        const fullShortUrl = `${baseUrl}/url/${existedUrl.shortUrl}`;
+        res.status(200).json({
+            message: `There exist a branded short url for your long url, you can edit it`,
+            fullShortUrl: fullShortUrl,
+        });
+    }
+};
 
 module.exports = router;
