@@ -42,13 +42,15 @@ router.put('/:shortUrl/edit', async (req, res) => {
 
 router.post('/unbranded', async (req, res) => {
     try {
+        // res.json(req.body);
+        const shortUrl = shortId.generate();
         const url = await Url.create({
             longUrl: req.body.longUrl,
-            shortUrl: shortId.generate(),
+            shortUrl: shortUrl,
         });
 
         if (url) {
-            return res.redirect('/');
+            res.json(shortUrl);
         } else {
             return res.status(400).json("Can't create short url");
         }

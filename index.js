@@ -12,12 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/url', urlRouter);
 
-/*
+// /*
 //This is a test
 app.get('/', (req, res) => {
     res.send({ hi: 'there' });
 });
-*/
+// */
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
