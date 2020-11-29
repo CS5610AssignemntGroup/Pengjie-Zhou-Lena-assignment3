@@ -30,8 +30,9 @@ router.put('/:shortUrl/edit', async (req, res) => {
                         .status(404)
                         .json(`No url found for ${req.params.shortUrl}`);
                 }
-                doc.name = req.body.shortUrl;
+                doc.shortUrl = req.body.shortUrl;
                 doc.save();
+                res.json(`Url changed to ${doc.shortUrl}`);
             }
         );
     } catch (err) {
@@ -68,7 +69,7 @@ router.post('/branded', async (req, res) => {
         });
 
         if (url) {
-            return res.redirect('/');
+            res.json(`Url ${req.body.shortUrl} created`);
         } else {
             return res.status(400).json("Can't create short url");
         }
