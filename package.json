@@ -4,13 +4,20 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "NODE_ENV=dev nodemon index.js",
+        "test": "NODE_ENV=test nodemon index.js",
+        "start": "node index.js",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
-        "mongoose": "^5.10.17"
+        "mongoose": "^5.10.17",
+        "nodemon": "^2.0.6",
+        "shortid": "^2.2.16",
+        "uuid": "^8.3.1",
+        "valid-url": "^1.0.9"
     },
     "devDependencies": {
         "eslint": "^7.14.0",
