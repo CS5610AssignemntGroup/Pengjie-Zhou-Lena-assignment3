@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9a9c8b5c-cece-48d9-ac4b-76fb71a77ae9" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="2c54c89b-d22f-4927-a79c-d776a9621cb8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/url.js" afterDir="false" />
+    </list>
+>>>>>>> 3f3e2f007cd1b5d7e82b702397d97330ea838d0e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -36,5 +44,103 @@
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="oldMeFiltersMigrated" value="true" />
+=======
+  <component name="ProjectId" id="1kx06x5TG6ZrgwLXAkwSqgLtzZY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="node" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c54c89b-d22f-4927-a79c-d776a9621cb8" name="Default Changelist" comment="" />
+      <created>1606626765544</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606626765544</updated>
+      <workItem from="1606626767818" duration="20881000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2447" y="629" key="#ESLint" timestamp="1606627483136">
+      <screen x="88" y="25" width="3352" height="1415" />
+    </state>
+    <state x="2447" y="629" key="#ESLint/88.25.3352.1415@88.25.3352.1415" timestamp="1606627483136" />
+    <state x="2319" y="483" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606688574306">
+      <screen x="88" y="25" width="3352" height="1415" />
+    </state>
+    <state x="2319" y="483" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.25.3352.1415@88.25.3352.1415" timestamp="1606688574306" />
+    <state width="1659" height="406" key="GridCell.Tab.0.bottom" timestamp="1606683746917">
+      <screen x="87" y="25" width="3353" height="1415" />
+    </state>
+    <state width="1659" height="406" key="GridCell.Tab.0.bottom/87.25.3353.1415@87.25.3353.1415" timestamp="1606683746917" />
+    <state width="1659" height="406" key="GridCell.Tab.0.bottom/88.25.3352.1415@88.25.3352.1415" timestamp="1606627491261" />
+    <state width="1659" height="406" key="GridCell.Tab.0.center" timestamp="1606683746917">
+      <screen x="87" y="25" width="3353" height="1415" />
+    </state>
+    <state width="1659" height="406" key="GridCell.Tab.0.center/87.25.3353.1415@87.25.3353.1415" timestamp="1606683746917" />
+    <state width="1659" height="406" key="GridCell.Tab.0.center/88.25.3352.1415@88.25.3352.1415" timestamp="1606627491260" />
+    <state width="1659" height="406" key="GridCell.Tab.0.left" timestamp="1606683746916">
+      <screen x="87" y="25" width="3353" height="1415" />
+    </state>
+    <state width="1659" height="406" key="GridCell.Tab.0.left/87.25.3353.1415@87.25.3353.1415" timestamp="1606683746916" />
+    <state width="1659" height="406" key="GridCell.Tab.0.left/88.25.3352.1415@88.25.3352.1415" timestamp="1606627491260" />
+    <state width="1659" height="406" key="GridCell.Tab.0.right" timestamp="1606683746917">
+      <screen x="87" y="25" width="3353" height="1415" />
+    </state>
+    <state width="1659" height="406" key="GridCell.Tab.0.right/87.25.3353.1415@87.25.3353.1415" timestamp="1606683746917" />
+    <state width="1659" height="406" key="GridCell.Tab.0.right/88.25.3352.1415@88.25.3352.1415" timestamp="1606627491260" />
+    <state x="2090" y="368" key="SettingsEditor" timestamp="1606627566238">
+      <screen x="88" y="25" width="3352" height="1415" />
+    </state>
+    <state x="2090" y="368" key="SettingsEditor/88.25.3352.1415@88.25.3352.1415" timestamp="1606627566238" />
+    <state x="2246" y="349" width="670" height="676" key="search.everywhere.popup" timestamp="1606692595246">
+      <screen x="87" y="25" width="3353" height="1415" />
+    </state>
+    <state x="2246" y="349" width="670" height="676" key="search.everywhere.popup/87.25.3353.1415@87.25.3353.1415" timestamp="1606692595246" />
+>>>>>>> 3f3e2f007cd1b5d7e82b702397d97330ea838d0e
   </component>
 </project>
