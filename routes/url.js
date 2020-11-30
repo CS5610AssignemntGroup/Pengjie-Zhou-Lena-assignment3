@@ -36,8 +36,8 @@ router.put('/:shortUrl/edit', async (req, res) => {
                 }
                 doc.shortUrl = req.body.shortUrl;
                 doc.save();
-                const fullShortUrl = baseUrl + '/url' + doc.shortUrl;
-                res.status(200).json({
+                const fullShortUrl = baseUrl + '/url/' + doc.shortUrl;
+                return res.status(200).json({
                     message: `Url changed to ${doc.shortUrl}`,
                     fullShortUrl: fullShortUrl,
                 });
@@ -57,7 +57,7 @@ router.delete('/:shortUrl', async (req, res) => {
                     message: `Can't delete ${req.params.shortUrl}`,
                 });
             }
-            res.status(200).json({
+            return res.status(200).json({
                 message: `Successfully delete ${req.params.shortUrl}`,
             });
         });
@@ -69,8 +69,17 @@ router.delete('/:shortUrl', async (req, res) => {
 
 router.post('/unbranded', async (req, res) => {
     try {
-        await checkExistedLongUrl(req, res);
-        await checkExistedBrandedUrl(req, res);
+        //check if there is existed long url
+        const longUrlExisted = await checkExistedUrl(
+            req,
+            res,
+            { longUrl: req.body.longUrl },
+            'There exist a short url for your long url'
+        );
+
+        if (longUrlExisted) {
+            return;
+        }
 
         //if there is no existed url, we create one
         const shortUrl = shortId.generate();
@@ -81,7 +90,7 @@ router.post('/unbranded', async (req, res) => {
 
         if (url) {
             const fullShortUrl = `${baseUrl}/url/${shortUrl}`;
-            res.status(201).json({
+            return res.status(201).json({
                 message: `Created a short url ${fullShortUrl}`,
                 fullShortUrl: fullShortUrl,
             });
@@ -96,18 +105,34 @@ router.post('/unbranded', async (req, res) => {
 
 router.post('/branded', async (req, res) => {
     try {
-        //check if there is an existed url
-        await checkExistedLongUrl(req, res);
+        //check if there is an existed long url
+        const longUrlExisted = await checkExistedUrl(
+            req,
+            res,
+            { longUrl: req.body.longUrl },
+            'There exist a short url for your long url'
+        );
 
-        const longUrl = req.body.longUrl;
+        //check if there is existed branded short url
+        const brandedUrlExisted = await checkExistedUrl(
+            req,
+            res,
+            { shortUrl: req.body.shortUrl },
+            'There exist a branded short url for your long url, you can edit it'
+        );
+
+        if (longUrlExisted || brandedUrlExisted) {
+            return;
+        }
+
         const url = await Url.create({
-            longUrl: longUrl,
+            longUrl: req.body.longUrl,
             shortUrl: req.body.shortUrl,
         });
 
         if (url) {
-            const fullShortUrl = baseUrl + '/url' + req.body.shortUrl;
-            res.status(201).json({
+            const fullShortUrl = baseUrl + '/url/' + req.body.shortUrl;
+            return res.status(201).json({
                 message: `Created a short url ${fullShortUrl}`,
                 fullShortUrl: fullShortUrl,
             });
@@ -122,34 +147,18 @@ router.post('/branded', async (req, res) => {
     }
 });
 
-//if the same long URL is submitted by multiple users, we return the already existing URL
-const checkExistedLongUrl = async (req, res) => {
-    const longUrl = req.body.longUrl;
-
-    //check if there is an existed long url
-    const existedUrl = await Url.findOne({ longUrl: longUrl });
+const checkExistedUrl = async (req, res, query, message) => {
+    //check if there is an existed url
+    const existedUrl = await Url.findOne(query);
     if (existedUrl) {
         const fullShortUrl = `${baseUrl}/url/${existedUrl.shortUrl}`;
         res.status(200).json({
-            message: `There exist a short url for your long url`,
+            message: message,
             fullShortUrl: fullShortUrl,
         });
-    }
-};
-
-//if a user requests a branded URL that already exists
-const checkExistedBrandedUrl = async (req, res) => {
-    const longUrl = req.body.longUrl;
-    const shortUrl = req.body.shortUrl;
-
-    //check if there is an existed short branded url
-    const existedUrl = await Url.findOne({ shortUrl: shortUrl });
-    if (existedUrl) {
-        const fullShortUrl = `${baseUrl}/url/${existedUrl.shortUrl}`;
-        res.status(200).json({
-            message: `There exist a branded short url for your long url, you can edit it`,
-            fullShortUrl: fullShortUrl,
-        });
+        return true;
+    } else {
+        return false;
     }
 };
 
