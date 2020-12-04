@@ -7,7 +7,7 @@ We defined three properties in the URL schema: longUrl, shortUrl and date, they 
 Mongoose makes it easy as it has validations and model methods thereby saves us to write our own instance methods. For example, we use findOne(), deleteOne() to valid the existence of shortUrls.
 
 #### Have you worked with databases before? How was this different or similar? If you’ve not worked with databases before, describe your challenges and ease in representing this data.
-I used MySQL before. The similarity with MySQL and MongoDB is we have to generate schemas for user input. However, the ways of schema design in MySQL and MongoDB are different: We have to adapt objects in code in normalisation due to MySQL's rigid relational structure. In this assignment, MongoDB provides us a more flexible data model and stores data as JSON-like documents. 
+I used MySQL before. The similarity with MySQL and MongoDB is that we have to generate schemas for user input in both databases. However, the ways of schema design in MySQL and MongoDB are different: We have to adapt objects in code in normalisation due to MySQL's rigid relational structure. In this assignment, MongoDB provides us a more flexible data model and stores data as JSON-like documents. 
 
 #### Respond to some of the questions or considerations from the Error Handling and Complications section of the assignment.
 1. What if the same URL is submitted by multiple users?  Will you return a unique URL each time, or an already existing URL?<br>
