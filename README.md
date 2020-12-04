@@ -4,7 +4,7 @@
 
 #### Describe your data model and schema. How did Mongoose make this easy or hard to express?
 We defined three properties in the URL schema: longUrl, shortUrl and date, they are all of 'String' type. The longUrl represents the original URL link, the shortUrl represents the shortened path ID, the date is the current local date when the shortUrl is generated.<br>
-Mongoose makes it easy as it has validations and model methods thereby saves us to write our own instance methods. For example, we use findOne(), deleteOne() to valid the existence of shortUrls.
+Mongoose makes it easy as it has validations thereby saves us from writing instance methods. For example, we use the Mongoose model methods findOne(), deleteOne() to valid the existence of shortUrls.
 
 #### Have you worked with databases before? How was this different or similar? If you’ve not worked with databases before, describe your challenges and ease in representing this data.
 I used MySQL before. The similarity with MySQL and MongoDB is that we have to generate schemas for user input in both databases. However, the ways of schema design in MySQL and MongoDB are different: We have to adapt objects in code in normalisation due to MySQL's rigid relational structure. In this assignment, MongoDB provides us a more flexible data model and stores data as JSON-like documents. 
