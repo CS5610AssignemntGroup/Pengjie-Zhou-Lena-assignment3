@@ -25,5 +25,9 @@ I used MySQL before. The similarity with MySQL and MongoDB is we have to generat
 
 #### Given more time, what additional features, functionality or design changes would you make?
 Our current design enables the users to edit/delete any existing shorten urls in the database. Given more time, we may implement functions to enable the user to manage only the urls they created. <br>
-We are considering either of the two ways to realize this: 1. Create user login so that each user will have an account to manage the urls they created. 2. Use cookies to save all urls created by a user.
+We are considering either of the two ways to realize this: 1. Create user login so that each user will have an account to manage the urls they created. 2. Use cookies to save all urls created by a user. <br>
+
+
+Pengjie 'Crisp' Zhou
+Xiaowei Dong
 
