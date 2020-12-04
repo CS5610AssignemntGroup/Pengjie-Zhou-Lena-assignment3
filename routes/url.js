@@ -120,7 +120,7 @@ router.post('/branded', async (req, res) => {
             req,
             res,
             { shortUrl: req.body.shortUrl },
-            'There exist a branded short url for your long url, you can edit it'
+            'There exist a branded short url as your input, you can edit it'
         );
 
         if (longUrlExisted || brandedUrlExisted) {

@@ -38,7 +38,9 @@ export default function UnBranded(props) {
 
     const handleResponse = () => {
         if (response !== {}) {
-            return <div>{response.data.message}</div>;
+            return (
+                <div>{response.data.message + response.data.fullShortUrl} </div>
+            );
         }
     };
 
