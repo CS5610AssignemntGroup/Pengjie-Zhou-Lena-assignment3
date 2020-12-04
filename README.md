@@ -28,6 +28,8 @@ Our current design enables the users to edit/delete any existing shorten urls in
 We are considering either of the two ways to realize this: 1. Create user login so that each user will have an account to manage the urls they created. 2. Use cookies to save all urls created by a user. <br>
 
 
-Pengjie 'Crisp' Zhou
+
+
+Pengjie 'Crisp' Zhou <br>
 Xiaowei Dong
 
