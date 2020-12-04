@@ -24,8 +24,7 @@ I used MySQL before. The similarity with MySQL and MongoDB is that we have to ge
    Our current design will not handle the edit request for any nonexistent url, users submitting such requests will be redirected to the Home page.<br>
 
 #### Given more time, what additional features, functionality or design changes would you make?
-Our current design enables the users to edit/delete any existing shorten urls in the database. Given more time, we may implement functions to enable the user to manage only the urls they created. <br>
-We are considering either of the two ways to realize this: 1. Create user login so that each user will have an account to manage the urls they created. 2. Use cookies to save all urls created by a user. <br>
+Our current design enables the users to edit/delete any existing shorten urls in the database. Given more time, we may implement functions to enable the user to manage only the urls they created. We are considering either of the two ways to realize this: 1. Create user login so that each user will have an account to manage the urls they created. 2. Use cookies to save all urls created by a user. <br>
 
 #### What assumptions, if any, did you make on this assignment?
 We assume that once the user choose the generate an unbranded shortUrl, it can neither be edit nor delete (as the specification indicates that "users should NOT be able to modify the unique path ID"), therefore there's no edit/delete function in the Unbranded page. By contrast, the user should be able to edit/delete the longUrl and customize the shortenUrl, we thereby realise the edit/delete function in the Branded page. To make user clear on the differences between the "Branded" and "Unbranded" tag, we have given additional instructions on the home page.
