@@ -19,11 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="9a9c8b5c-cece-48d9-ac4b-76fb71a77ae9" name="Default Changelist" comment="" />
+=======
     <list default="true" id="2c54c89b-d22f-4927-a79c-d776a9621cb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/content/Unbranded.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/content/Unbranded.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/url.js" afterDir="false" />
     </list>
+>>>>>>> 3f3e2f007cd1b5d7e82b702397d97330ea838d0e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +36,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+=======
   <component name="ProjectId" id="1kx06x5TG6ZrgwLXAkwSqgLtzZY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -154,5 +168,6 @@
       <screen x="87" y="25" width="3353" height="1415" />
     </state>
     <state x="2246" y="349" width="670" height="676" key="search.everywhere.popup/87.25.3353.1415@87.25.3353.1415" timestamp="1606692595246" />
+>>>>>>> 3f3e2f007cd1b5d7e82b702397d97330ea838d0e
   </component>
 </project>
