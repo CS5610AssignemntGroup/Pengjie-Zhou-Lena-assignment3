@@ -8,8 +8,8 @@ export default function MyHeader() {
             <Navbar bg="light" variant="light">
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="/url/unbranded">Unbranded</Nav.Link>
-                    <Nav.Link href="/url/branded">Branded</Nav.Link>
+                    <Nav.Link href="/unbranded">Unbranded</Nav.Link>
+                    <Nav.Link href="/branded">Branded</Nav.Link>
                 </Nav>
             </Navbar>
         </div>

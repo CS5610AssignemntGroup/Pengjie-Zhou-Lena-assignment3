@@ -17,12 +17,8 @@ class App extends Component {
                         <MyHeader />
                         <br />
                         <Route exact path="/" component={Home} />
-                        <Route
-                            exact
-                            path="/url/unbranded"
-                            component={Unbranded}
-                        />
-                        <Route exact path="/url/branded" component={Branded} />
+                        <Route exact path="/unbranded" component={Unbranded} />
+                        <Route exact path="/branded" component={Branded} />
                         <Route path="/url/:shortUrl/edit" component={Edit} />
                     </div>
                 </BrowserRouter>
