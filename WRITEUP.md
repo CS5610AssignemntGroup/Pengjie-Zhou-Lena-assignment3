@@ -16,11 +16,11 @@ I used MySQL before. The similarity with MySQL and MongoDB is that we have to ge
    We have generated a error message "There exist a short url for your long url" so that the user will be notified for the duplication.<br>
 3. *How will you structure your data in MongoDB?  Will branded and unbranded URLs be stored and/or represented differently?* <br>
    We store the branded and unbranded URLs seperately. We represent them in seperate pages and give users the option to select which type of shortURL they want to generate.<br>
-4. *How will you handle the case if a user were to supply an invalid URL, or a string that isn’t a URL at all? *<br>
+4. *How will you handle the case if a user were to supply an invalid URL, or a string that isn’t a URL at all?*<br>
    We have generated a error message "Not a valid url" under the link paste bar so that the user will be notified for the error.<br>
-5. *After a user deletes, what should you show on the UI? *<br>
+5. *After a user deletes, what should you show on the UI?*<br>
    After a user clicks the 'delete' button in the 'Branded' page (we assume user cann't edit/delete unbranded url so didn't put the edit/delete function there), the   existed url will be removed from the UI, and the user will be redirected back to the Home page.<br>
-6. *What if users try to edit a URL that doesn’t exist? *<br>
+6. *What if users try to edit a URL that doesn’t exist?*<br>
    Our current design will not handle the edit request for any nonexistent url, users submitting such requests will be redirected to the Home page.<br>
 
 #### Given more time, what additional features, functionality or design changes would you make?
