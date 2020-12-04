@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import MyHeader from './components/MyHeader';
+import Home from './components/Home';
+import Unbranded from './components/content/Unbranded';
+import Branded from './components/content/Branded';
+import Edit from './components/content/Edit';
 import './App.css';
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
+class App extends Component {
+    render() {
+        return (
+            <div className="container">
+                <BrowserRouter>
+                    <div>
+                        <MyHeader />
+                        <br />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/unbranded" component={Unbranded} />
+                        <Route exact path="/branded" component={Branded} />
+                        <Route path="/url/:shortUrl/edit" component={Edit} />
+                    </div>
+                </BrowserRouter>
+            </div>
+        );
+    }
 }
 
 export default App;
