@@ -63,14 +63,14 @@ export default function Edit() {
         }
     };
 
-    const isLong = option => {
-        return option ? 'Old Long' : 'New Long';
-    };
-
     return (
         <div>
             <InputLabel htmlFor="{'first-field'}">{prompt}</InputLabel>
-            <InputField setField={setFirstField} isError={false} />
+            <InputField
+                setField={setFirstField}
+                isError={false}
+                option={'New Long'}
+            />
             <br />
             <Button variant="contained" color="primary" onClick={handleEdit}>
                 Edit

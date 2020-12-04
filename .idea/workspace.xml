@@ -20,28 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c54c89b-d22f-4927-a79c-d776a9621cb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/InputField.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/MyHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/content/Branded.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/content/Edit.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/content/Unbranded.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/content/Branded.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/content/Branded.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/content/Edit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/content/Edit.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/url.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

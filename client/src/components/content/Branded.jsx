@@ -36,13 +36,10 @@ export default function Branded(props) {
 
             const res = await axios(config);
             setResponse(res);
-            // console.log(res);
         }
-        // setSecondError(!validUrl.isUri(secondField));
     };
 
     const handleEdit = () => {
-        // props.history.push(`${process.env.BASE_URL}/${secondField}/edit`);
         if (secondField === '') {
             alert('Please input Short URL you want to edit');
         }
