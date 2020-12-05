@@ -5,17 +5,9 @@ import axios from 'axios';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { Provider } from 'react-redux';
-// import reducers from './reducers';
-//
-// window.axios = axios;
-//
-// const store = createStore(reducers, {});
 
 ReactDOM.render(
-    // <Provider store={store}>
     <App />,
-    // </Provider>,
     document.getElementById('root')
 );
 
