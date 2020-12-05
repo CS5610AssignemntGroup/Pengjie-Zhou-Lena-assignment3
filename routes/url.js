@@ -51,9 +51,18 @@ router.put('/:shortUrl/edit', async (req, res) => {
 
 router.delete('/:shortUrl', async (req, res) => {
     try {
-        await Url.deleteOne({ shortUrl: req.params.shortUrl }, err => {
+        const fullShortUrl = baseUrl + '/url/' + req.params.shortUrl;
+        const url = await Url.findOne({ shortUrl: req.params.shortUrl });
+        //if users try to delete a URL that does not exist
+        if (!url) {
+            return res.json({
+                message: `No url found for ${fullShortUrl}, can't delete it`,
+            });
+        }
+
+        await Url.deleteOne({ shortUrl: req.params.shortUrl }, (err, doc) => {
             const fullShortUrl = `${baseUrl}/url/${req.params.shortUrl}`;
-            if (err) {
+            if (err || !doc) {
                 return res.json({
                     message: `Can't delete ${fullShortUrl}`,
                 });
