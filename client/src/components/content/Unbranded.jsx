@@ -5,6 +5,7 @@ import axios from 'axios';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputField from '../InputField';
 import validUrl from 'valid-url';
+import './content.css';
 
 export default function UnBranded(props) {
     let history = useHistory();
@@ -37,7 +38,7 @@ export default function UnBranded(props) {
     };
 
     const handleResponse = () => {
-        if (response !== {}) {
+        if (response.data !== '') {
             return (
                 <div>{response.data.message + response.data.fullShortUrl} </div>
             );
@@ -59,7 +60,6 @@ export default function UnBranded(props) {
                 isError={firstError}
                 option={isLong(true)}
             />
-            <br />
 
             <div className="buttons">
                 <Button
@@ -70,7 +70,9 @@ export default function UnBranded(props) {
                 </Button>
             </div>
             <br />
-            {handleResponse()}
+            <div className="url-msg-div">
+                <h2>{handleResponse()} </h2>      
+            </div>
         </div>
     );
 }

@@ -1,0 +1,9 @@
+.url-msg-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+    color: #ff9a76;
+  }
+  

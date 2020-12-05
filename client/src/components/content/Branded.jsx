@@ -6,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputField from '../InputField';
 import validUrl from 'valid-url';
 
+
 export default function Branded(props) {
     let history = useHistory();
     const [firstField, setFirstField] = React.useState('');
@@ -85,6 +86,7 @@ export default function Branded(props) {
                     onClick={handleSubmit}>
                     Create
                 </Button>
+                {' '} 
                 <Button
                     variant="contained"
                     color="primary"
@@ -93,7 +95,9 @@ export default function Branded(props) {
                 </Button>
             </div>
             <br />
-            {handleResponse()}
+            <div className="url-msg-div">
+                <h2>{handleResponse()} </h2>
+            </div>
         </div>
     );
 }
