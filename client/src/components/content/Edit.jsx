@@ -10,7 +10,9 @@ export default function Edit() {
     let params = useParams();
     const [firstField, setFirstField] = React.useState('');
     const [firstError, setFirstError] = React.useState(false);
-    const prompt = `Please input your New Long URL for ${params.shortUrl}`;
+    const pagePrompt = `In this page, you can edit long URL for your short URL id: ${params.shortUrl},
+                        or delete it`;
+    const inputPrompt = `Please input your New Long URL for short URL id :${params.shortUrl}`;
     const [response, setResponse] = React.useState({ data: '' });
 
     const handleEdit = async () => {
@@ -34,7 +36,6 @@ export default function Edit() {
                 },
                 data: data,
             };
-            console.log(config);
             const res = await axios(config);
             setResponse(res);
         }
@@ -57,15 +58,20 @@ export default function Edit() {
     };
 
     const handleResponse = () => {
-        console.log(response);
-        if (response !== {}) {
-            return <div>{response.data.message}</div>;
+        if (response.data !== '') {
+            return (
+                <div>
+                    <div>{response.data.message} </div>
+                    <div>{response.data.fullShortUrl || ''}</div>
+                </div>
+            );
         }
     };
 
     return (
         <div>
-            <InputLabel htmlFor="{'first-field'}">{prompt}</InputLabel>
+            <p>{pagePrompt}</p>
+            <InputLabel htmlFor="{'first-field'}">{inputPrompt}</InputLabel>
             <InputField
                 setField={setFirstField}
                 isError={false}
@@ -74,8 +80,7 @@ export default function Edit() {
             <br />
             <Button variant="contained" color="primary" onClick={handleEdit}>
                 Edit
-            </Button>
-            {' '}
+            </Button>{' '}
             <Button variant="contained" color="primary" onClick={handleDelete}>
                 Delete
             </Button>

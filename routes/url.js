@@ -25,25 +25,24 @@ router.get('/:shortUrl', async (req, res) => {
 
 router.put('/:shortUrl/edit', async (req, res) => {
     try {
-        const url = await Url.findOne(
-            { shortUrl: req.params.shortUrl },
-            (err, doc) => {
-                //if users try to edit a URL that doesn’t exist
-                const fullShortUrl = baseUrl + '/url/' + doc.shortUrl;
-                if (err) {
-                    return res.status(404).json({
-                        message: `No url found for ${fullShortUrl}`,
-                    });
-                }
-                doc.longUrl = req.body.longUrl;
-                doc.save();
+        const fullShortUrl = baseUrl + '/url/' + req.params.shortUrl;
+        const url = await Url.findOne({ shortUrl: req.params.shortUrl });
+        //if users try to edit a URL that does not exist
+        if (!url) {
+            return res.json({
+                message: `No url found for ${fullShortUrl}`,
+            });
+        }
 
-                return res.status(200).json({
-                    message: `Long Url for ${fullShortUrl} changed to ${doc.longUrl}`,
-                    fullShortUrl: fullShortUrl,
-                });
-            }
-        );
+        url.longUrl = req.body.longUrl;
+        url.save();
+
+        return res.status(200).json({
+            message: `Long Url for 
+                              ${fullShortUrl} 
+                              changed to 
+                              ${url.longUrl}`,
+        });
     } catch (err) {
         console.error(err.message);
         return res.status(500).json({ message: 'Server Error' });
@@ -55,7 +54,7 @@ router.delete('/:shortUrl', async (req, res) => {
         await Url.deleteOne({ shortUrl: req.params.shortUrl }, err => {
             const fullShortUrl = `${baseUrl}/url/${req.params.shortUrl}`;
             if (err) {
-                return res.status(404).json({
+                return res.json({
                     message: `Can't delete ${fullShortUrl}`,
                 });
             }
@@ -94,7 +93,6 @@ router.post('/unbranded', async (req, res) => {
             const fullShortUrl = `${baseUrl}/url/${shortUrl}`;
             return res.status(201).json({
                 message: `Short url created: ${fullShortUrl}`,
-                // fullShortUrl: fullShortUrl,
             });
         } else {
             return res.status(400).json({ message: "Can't create short url" });
@@ -135,8 +133,8 @@ router.post('/branded', async (req, res) => {
         if (url) {
             const fullShortUrl = baseUrl + '/url/' + req.body.shortUrl;
             return res.status(201).json({
-                message: `Short url created: ${fullShortUrl}`,
-                // fullShortUrl: fullShortUrl,
+                message: `Short url created`,
+                fullShortUrl: fullShortUrl,
             });
         } else {
             return res.status(400).json({

@@ -1,23 +1,25 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputField from '../InputField';
 import validUrl from 'valid-url';
 import './content.css';
 
-export default function UnBranded(props) {
-    let history = useHistory();
+export default function UnBranded() {
     const [firstField, setFirstField] = React.useState('');
     const [firstError, setFirstError] = React.useState(false);
     const [response, setResponse] = React.useState({ data: '' });
 
     const handleSubmit = async () => {
-        setFirstError(!validUrl.isUri(firstField));
+        const hasError = validUrl.isUri(firstField) === undefined;
+        setFirstError(prevState => hasError);
         if (firstField === '') {
             alert('Please input URL');
-        } else if (!firstError) {
+        }
+        if (hasError) {
+            alert('Not a valid URL');
+        } else {
             const postUrl = process.env.REACT_APP_BASE_URL + '/url/unbranded';
             const data = {
                 longUrl: firstField,
@@ -38,9 +40,15 @@ export default function UnBranded(props) {
     };
 
     const handleResponse = () => {
+        if (firstField === '') {
+            return;
+        }
         if (response.data !== '') {
             return (
-                <div>{response.data.message + response.data.fullShortUrl} </div>
+                <div>
+                    <div>{response.data.message} </div>
+                    <div>{response.data.fullShortUrl || ''}</div>
+                </div>
             );
         }
     };
@@ -54,13 +62,14 @@ export default function UnBranded(props) {
             <InputLabel htmlFor="{'first-field'}">
                 Please input your Long URL
             </InputLabel>
+            {console.log('in component', firstError)}
             <InputField
                 id={'first-field'}
                 setField={setFirstField}
                 isError={firstError}
                 option={isLong(true)}
             />
-
+            <br />
             <div className="buttons">
                 <Button
                     variant="contained"
@@ -71,7 +80,7 @@ export default function UnBranded(props) {
             </div>
             <br />
             <div className="url-msg-div">
-                <h2>{handleResponse()} </h2>      
+                <h2>{handleResponse()} </h2>
             </div>
         </div>
     );
