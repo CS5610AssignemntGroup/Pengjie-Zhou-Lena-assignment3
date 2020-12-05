@@ -75,11 +75,14 @@ export default function Edit() {
             <Button variant="contained" color="primary" onClick={handleEdit}>
                 Edit
             </Button>
+            {' '}
             <Button variant="contained" color="primary" onClick={handleDelete}>
                 Delete
             </Button>
             <br />
-            {handleResponse()}
+            <div className="url-msg-div">
+                <h2>{handleResponse()} </h2>
+            </div>
         </div>
     );
 }
