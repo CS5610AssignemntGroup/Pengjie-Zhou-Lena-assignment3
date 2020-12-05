@@ -93,8 +93,8 @@ router.post('/unbranded', async (req, res) => {
         if (url) {
             const fullShortUrl = `${baseUrl}/url/${shortUrl}`;
             return res.status(201).json({
-                message: `Created a short url ${fullShortUrl}`,
-                fullShortUrl: fullShortUrl,
+                message: `Short url created: ${fullShortUrl}`,
+                // fullShortUrl: fullShortUrl,
             });
         } else {
             return res.status(400).json({ message: "Can't create short url" });
@@ -135,8 +135,8 @@ router.post('/branded', async (req, res) => {
         if (url) {
             const fullShortUrl = baseUrl + '/url/' + req.body.shortUrl;
             return res.status(201).json({
-                message: `Created a short url ${fullShortUrl}`,
-                fullShortUrl: fullShortUrl,
+                message: `Short url created: ${fullShortUrl}`,
+                // fullShortUrl: fullShortUrl,
             });
         } else {
             return res.status(400).json({
