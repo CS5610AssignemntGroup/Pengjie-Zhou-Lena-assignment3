@@ -46,11 +46,8 @@ export default function Branded(props) {
         if (secondField === '') {
             alert('Please input Short URL you want to edit');
         }
-        try {
-            history.push(`/url/${secondField}/edit`);
-        } catch (err) {
-            alert('Please create this short URL first');
-        }
+
+        history.push(`/url/${secondField}/edit`);
     };
 
     const handleResponse = () => {

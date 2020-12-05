@@ -16,8 +16,9 @@ export default function Edit() {
     const [response, setResponse] = React.useState({ data: '' });
 
     const handleEdit = async () => {
-        setFirstError(!validUrl.isUri(firstField));
-        if (!firstError) {
+        const hasError = validUrl.isUri(firstField) === undefined;
+        setFirstError(prevState => hasError);
+        if (!hasError) {
             const putUrl =
                 process.env.REACT_APP_BASE_URL +
                 '/url/' +
@@ -74,7 +75,7 @@ export default function Edit() {
             <InputLabel htmlFor="{'first-field'}">{inputPrompt}</InputLabel>
             <InputField
                 setField={setFirstField}
-                isError={false}
+                isError={firstError}
                 option={'New Long'}
             />
             <br />
