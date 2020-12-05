@@ -12,13 +12,16 @@ export default function Branded(props) {
     const [firstError, setFirstError] = React.useState(false);
     const [secondField, setSecondField] = React.useState('');
     const [response, setResponse] = React.useState({ data: '' });
-    // const [secondError, setSecondError] = React.useState(false);
 
     const handleSubmit = async () => {
-        setFirstError(!validUrl.isUri(firstField));
+        const hasError = validUrl.isUri(firstField) === undefined;
+        setFirstError(prevState => hasError);
         if (firstField === '' || secondField === '') {
             alert('Please input URL');
-        } else if (!firstError) {
+        }
+        if (hasError) {
+            alert('Not a valid URL');
+        } else {
             const postUrl = process.env.REACT_APP_BASE_URL + '/url/branded';
             const data = {
                 longUrl: firstField,
@@ -39,16 +42,25 @@ export default function Branded(props) {
         }
     };
 
-    const handleEdit = () => {
+    const handleEdit = async () => {
         if (secondField === '') {
             alert('Please input Short URL you want to edit');
         }
-        history.push(`/url/${secondField}/edit`);
+        try {
+            history.push(`/url/${secondField}/edit`);
+        } catch (err) {
+            alert('Please create this short URL first');
+        }
     };
 
     const handleResponse = () => {
-        if (response !== {}) {
-            return <div>{response.data.message}</div>;
+        if (response.data !== '') {
+            return (
+                <div>
+                    <div>{response.data.message} </div>
+                    <div>{response.data.fullShortUrl || ''}</div>
+                </div>
+            );
         }
     };
 
@@ -69,7 +81,7 @@ export default function Branded(props) {
             />
             <br />
             <InputLabel htmlFor="{'second-field'}">
-                Please input your customized short URL
+                Please input your customized short URL id
             </InputLabel>
             <InputField
                 id={'second-field'}
@@ -84,7 +96,7 @@ export default function Branded(props) {
                     color="primary"
                     onClick={handleSubmit}>
                     Create
-                </Button>
+                </Button>{' '}
                 <Button
                     variant="contained"
                     color="primary"
@@ -93,7 +105,9 @@ export default function Branded(props) {
                 </Button>
             </div>
             <br />
-            {handleResponse()}
+            <div className="url-msg-div">
+                <h2>{handleResponse()} </h2>
+            </div>
         </div>
     );
 }

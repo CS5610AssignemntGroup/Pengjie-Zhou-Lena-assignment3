@@ -3,9 +3,10 @@ import React from 'react';
 export default function Home() {
     return (
         <div>
-            <p>Welcome to URL Shortener</p>
-            <p>Please click the menu to create Unbranded or Branded URL</p>
-            //TODO add instructions
+            <h2>Welcome to URL Shortener</h2>
+            <br />
+            <p>Please click Unbranded tag to get a random shorten url</p>
+            <p>Please click Branded tag to get a customized shorten url</p>
         </div>
     );
 }
