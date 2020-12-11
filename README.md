@@ -1,6 +1,6 @@
 # Pengjie-Zhou-Xiaowei-Dong-assignment3
 
-
+The heroku link for this app: https://cs5610assignment3.herokuapp.com/
 
 #### Describe your data model and schema. How did Mongoose make this easy or hard to express?
 We defined three properties in the URL schema: longUrl, shortUrl and date, they are all of 'String' type. The longUrl represents the original URL link, the shortUrl represents the shortened path ID, the date is the current local date when the shortUrl is generated.<br>
